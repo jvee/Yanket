@@ -1,0 +1,11 @@
+<div class="b-progress__wrap">
+
+	<div class="b-progress__counter">
+		<div class="b-progress__counter-wrap">
+			<span class="b-progress__counter-text"><%= progress %></span> %
+		</div>
+	</div>
+
+	<ul class="b-progress__list"></ul>
+
+</div>

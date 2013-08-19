@@ -1,0 +1,3 @@
+<a class="b-progress__item-link" href="#question<%= index %>" tabindex="-1">
+	<span class="b-progress__item-text"><%= index %></span>
+</a>

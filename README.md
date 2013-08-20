@@ -22,3 +22,7 @@ Yanket
 - Классы `.b-questions` и `.b-question` создают некоторую путанницу в понимании
 
 
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/jvee/yanket/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+

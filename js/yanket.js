@@ -34,7 +34,12 @@ require(['Backbone', 'Models/Question' ,'Views/Progress', 'Views/Questions', 'he
 			itemOptions: {
 				tagName: 'li',
 				className: 'b-progress__item',
-				wrapSelector: '.b-progress__item-link',
+				wrapSelector: '.b-progress__item-link'
+			},
+			progressModelOptions: {
+				startAngle: 105,
+				endAngle: 390,
+				spaceAngle: 2
 			}
 		}),
 		questionsView = new QuestionsView({
@@ -42,7 +47,14 @@ require(['Backbone', 'Models/Question' ,'Views/Progress', 'Views/Questions', 'he
 			model: questionsForm,
 			className: 'b-questions',
 			listSelector: '.b-questions__form',
-			btnSelector: '.b-questions__button'
+			btnSelector: '.b-questions__button',
+			itemOptions: {
+				className: 'b-question',
+				showCutBtnSelector: '.b-question__content-show-cut',
+				cutContentSelector: '.b-question__content-cut',
+				validClass: 'is-valid',
+				invalidClass: 'is-invalid'
+			}
 		});
 
 	document.body.appendChild(progressView.render().el);

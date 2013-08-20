@@ -4,12 +4,14 @@ define(['Backbone'], function (Backbone) {
 
 		defaults: {
 			progress: 0,
-			startAngle: 105,
-			endAngle: 390,
+			startAngle: 90,
+			endAngle: 360,
 			spaceAngle: 2
-		},
+		},			
 
 		initialize: function (data, options) {
+			this.set()
+
 			this.questionCollection = options.questionCollection;
 			this.questionCollection.on('change:answers', this.calculateProgress, this);
 			this.questionCollection.on('invalid', this.calculateProgress, this);

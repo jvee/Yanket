@@ -21,7 +21,10 @@ define(['Backbone', 'Views/QuestionItem', 'templates'], function (Backbone, Ques
 		},
 
 		renderItem: function (model) {
-			this.list.appendChild(new QuestionItem({model: model}).render().el);
+			var data = {model: model};
+
+			_.extend(data, this.options.itemOptions);
+			this.list.appendChild(new QuestionItem(data).render().el);
 		},
 
 		submitForm: function (e) {

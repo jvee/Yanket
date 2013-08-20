@@ -2,19 +2,18 @@ define(['Backbone', 'templates'], function (Backbone, templates) {
 
 	var QuestionItem = Backbone.View.extend({
 
-		className: 'b-question',
-
 		template: templates['QuestionItem'],
 
 		events: {
-			'click .b-question__content-show-cut' : 'showCut',
 			'blur textarea': 'setText'
 		},
 
-		initialize: function () {
+		initialize: function (options) {
 			this.index = this.model.collection.indexOf(this.model) + 1;
 			this.model.on('invalid', this.setError, this);
 			this.model.on('change:answers', this.removeError, this);
+
+			this.$el.on('click', options.showCutBtnSelector, $.proxy(this.showCut, this));
 		},
 
 		render: function () {
@@ -29,8 +28,8 @@ define(['Backbone', 'templates'], function (Backbone, templates) {
 		showCut: function (e) {
 			e.preventDefault();
 
-			this.$('.b-question__content-cut').css({'display': 'block'});
-			this.$('.b-question__content-show-cut').remove();
+			this.$(this.options.cutContentSelector).css({'display': 'block'});
+			this.$(this.options.showCutBtnSelector).remove();
 		},
 
 		setText: function (e) {
@@ -44,14 +43,14 @@ define(['Backbone', 'templates'], function (Backbone, templates) {
 
 		setError: function () {
 			this.$el
-				.removeClass('is-valid')
-				.addClass('is-invalid');
+				.removeClass(this.options.validClass)
+				.addClass(this.options.invalidClass);
 		},
 
 		removeError: function () {
 			this.$el
-				.removeClass('is-invalid')
-				.addClass('is-valid');
+				.removeClass(this.options.invalidClass)
+				.addClass(this.options.validClass);
 		}
 
 

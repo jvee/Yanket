@@ -5,7 +5,7 @@ define(['Backbone', 'Views/ProgressItem', 'Models/Progress', 'helpers', 'templat
 		template: templates['Progress'],
 
 		initialize: function (options) {
-			this.model = new ProgressModel({},{questionCollection: this.collection}),
+			this.model = new ProgressModel(options.progressModelOptions,{questionCollection: this.collection}),
 			this.model.on('change:progress', this.renderProgress, this);
 			this.currentProgress = this.targetProgress = this.model.get('progress');
 			this.RenderTimeOut = null;
@@ -28,7 +28,7 @@ define(['Backbone', 'Views/ProgressItem', 'Models/Progress', 'helpers', 'templat
 		},
 
 		renderItem: function (model) {
-			var data = { 
+			var data = {
 				model: model,
 				progressModel: this.model
 			};
@@ -39,7 +39,7 @@ define(['Backbone', 'Views/ProgressItem', 'Models/Progress', 'helpers', 'templat
 		renderProgress: function () {
 			var _this = this;
 
-			this.targetProgress = parseInt(this.model.get('progress'));
+			this.targetProgress = parseInt(this.model.get('progress'), 10);
 
 			if (this.currentProgress === this.targetProgress) return;
 

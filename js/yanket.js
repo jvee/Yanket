@@ -20,7 +20,7 @@ require.config({
 	}
 });
 
-require(['Backbone', 'Models/Question' ,'Views/Progress', 'Views/Questions', 'helpers'],
+require(['Backbone', 'Models/QuestionModel' ,'Views/ProgressView', 'Views/QuestionCollectionView', 'helpers'],
 	function (Backbobe, QuestionModel, ProgressView, QuestionsView, helpers) {
 
 	var questionsCollection = new Backbone.Collection(Yanket.data.questions, {model: QuestionModel}),

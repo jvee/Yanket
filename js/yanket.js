@@ -31,10 +31,13 @@ require(['Backbone', 'Models/Question' ,'Views/Progress', 'Views/Questions', 'he
 			listSelector: '.b-progress__list',
 			textSelector: '.b-progress__counter-text',
 			simpleModifierClass: 'b-progress_simple',
+			updateInterval: 15,
 			itemOptions: {
 				tagName: 'li',
 				className: 'b-progress__item',
-				wrapSelector: '.b-progress__item-link'
+				wrapSelector: '.b-progress__item-link',
+				validClass: 'is-valid',
+				invalidClass: 'is-invalid'
 			},
 			progressModelOptions: {
 				startAngle: 105,

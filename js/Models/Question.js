@@ -1,8 +1,10 @@
 define(['Backbone'], function (Backbone) {
-
-	var Question = Backbone.Model.extend({
-
-		initialize: function (data, options) {},
+	/**
+	 * @class Модель вопроса анкеты
+	 */
+	var QuestionModel = Backbone.Model.extend(
+		/** @lends QuestionModel.prototype */
+	{
 
 		defaults: {
 			content: 'Вопрос',
@@ -13,6 +15,13 @@ define(['Backbone'], function (Backbone) {
 			answers: {}
 		},
 
+		/**
+		 * Валидация корректности ответа на вопрос
+		 * @param  {Object} attrs Данные модели
+		 * @param  {Object} options
+		 * @return {Array} Массив с описанием ошибок, 
+		 * если ошибок нет, то ничего
+		 */
 		validate: function (attrs, options) {
 
 			var text = attrs.answers.text,
@@ -35,6 +44,6 @@ define(['Backbone'], function (Backbone) {
 
 	});
 
-	return Question;
+	return QuestionModel;
 
 });

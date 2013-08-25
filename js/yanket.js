@@ -20,12 +20,13 @@ require.config({
 	}
 });
 
-require(['Backbone', 'Models/QuestionModel' ,'Views/ProgressView', 'Views/QuestionCollectionView', 'helpers'],
-	function (Backbobe, QuestionModel, ProgressView, QuestionsView, helpers) {
+require(['Backbone', 'Models/QuestionModel' ,'Views/ProgressView', 'Views/QuestionCollectionView', 'templates'],
+function (Backbobe, QuestionModel, ProgressView, QuestionsView, templates) {
 
 	var questionsCollection = new Backbone.Collection(Yanket.data.questions, {model: QuestionModel}),
 		questionsForm = new Backbone.Model(Yanket.data.questionsForm),
 		progressView = new ProgressView({
+			template: templates['Progress'],
 			collection: questionsCollection,
 			className: 'b-progress',
 			listSelector: '.b-progress__list',
@@ -33,6 +34,7 @@ require(['Backbone', 'Models/QuestionModel' ,'Views/ProgressView', 'Views/Questi
 			simpleModifierClass: 'b-progress_simple',
 			updateInterval: 15,
 			itemOptions: {
+				template: templates['ProgressItem'],
 				tagName: 'li',
 				className: 'b-progress__item',
 				wrapSelector: '.b-progress__item-link',
@@ -46,12 +48,14 @@ require(['Backbone', 'Models/QuestionModel' ,'Views/ProgressView', 'Views/Questi
 			}
 		}),
 		questionsView = new QuestionsView({
+			template: templates['Questions'],
 			collection: questionsCollection,
 			model: questionsForm,
 			className: 'b-questions',
 			listSelector: '.b-questions__form',
 			btnSelector: '.b-questions__button',
 			itemOptions: {
+				template: templates['QuestionItem'],
 				className: 'b-question',
 				showCutBtnSelector: '.b-question__content-show-cut',
 				cutContentSelector: '.b-question__content-cut',

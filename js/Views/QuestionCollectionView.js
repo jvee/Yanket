@@ -1,4 +1,4 @@
-define(['Backbone', 'Views/QuestionItemView', 'templates'], function (Backbone, QuestionItem, templates) {
+define(['Backbone', 'Views/QuestionItemView'], function (Backbone, QuestionItem) {
 
 	/**
 	 * @class Представление формы с вопросами анкеты
@@ -6,9 +6,6 @@ define(['Backbone', 'Views/QuestionItemView', 'templates'], function (Backbone, 
 	var QuestionCollectionView = Backbone.View.extend(
 		/** @lends QuestionCollectionView.prototype */
 	{
-
-		template: templates['Questions'],
-
 		events: {
 			'submit form': 'submitForm'
 		},
@@ -23,7 +20,7 @@ define(['Backbone', 'Views/QuestionItemView', 'templates'], function (Backbone, 
 		 * @return {QuestionCollectionView} chain-ссылка
 		 */
 		render: function () {
-			this.el.innerHTML = this.template(this.model.attributes);
+			this.el.innerHTML = this.options.template(this.model.attributes);
 			this.list = this.$(this.listSelector)[0];
 			this.collection.each(this.renderItem, this);
 

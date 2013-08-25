@@ -1,5 +1,5 @@
-define(['Backbone', 'Views/ProgressItemView', 'Models/ProgressModel', 'helpers', 'templates'],
-function (Backbone, ProgressItemView, ProgressModel, helpers, templates) {
+define(['Backbone', 'Views/ProgressItemView', 'Models/ProgressModel', 'helpers'],
+function (Backbone, ProgressItemView, ProgressModel, helpers) {
 
 	/**
 	 * @class Представление прогресса заполнения анкеты
@@ -10,8 +10,6 @@ function (Backbone, ProgressItemView, ProgressModel, helpers, templates) {
 	var ProgressView = Backbone.View.extend(
 		/** @lends ProgressView.prototype */
 	{
-
-		template: templates['Progress'],
 
 		/**
 		 * Инициализация представления прогресса
@@ -32,7 +30,7 @@ function (Backbone, ProgressItemView, ProgressModel, helpers, templates) {
 		 * @public
 		 */
 		render: function () {
-			this.el.innerHTML = this.template(this.model.attributes);
+			this.el.innerHTML = this.options.template(this.model.attributes);
 			this.list = this.$(this.options.listSelector)[0];
 			this.counter = this.$(this.options.textSelector)[0];
 			this.collection.each(this.renderItem, this);

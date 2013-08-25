@@ -1,4 +1,4 @@
-define(['Backbone', 'templates'], function (Backbone, templates) {
+define(['Backbone'], function (Backbone) {
 
 	/**
 	 * @class Представление модели вопроса анкеты
@@ -6,9 +6,6 @@ define(['Backbone', 'templates'], function (Backbone, templates) {
 	var QuestionItemView = Backbone.View.extend(
 		/** @lends QuestionItemView.prototype */
 	{
-
-		template: templates['QuestionItem'],
-
 		events: {
 			'blur textarea': 'setText'
 		},
@@ -31,7 +28,7 @@ define(['Backbone', 'templates'], function (Backbone, templates) {
 			var data = $.extend(true, {index: this.index}, this.model.attributes);
 
 			this.el.id = 'question' + this.index;
-			this.el.innerHTML = this.template(data);
+			this.el.innerHTML = this.options.template(data);
 
 			return this;
 		},

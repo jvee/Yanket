@@ -1,4 +1,4 @@
-define(['Backbone', 'helpers', 'templates'], function (Backbone, helpers, templates) {
+define(['Backbone', 'helpers'], function (Backbone, helpers) {
 
 	/**
 	 * @class Представление индикатора валидности отдельного вопроса анкеты
@@ -6,9 +6,6 @@ define(['Backbone', 'helpers', 'templates'], function (Backbone, helpers, templa
 	var ProgressItemView = Backbone.View.extend(
 		/** @lends ProgressItemView.prototype */
 	{
-
-		template: templates['ProgressItem'],
-
 		/** @constructs */
 		initialize: function() {
 			this.progressModel = this.options.progressModel;
@@ -27,7 +24,7 @@ define(['Backbone', 'helpers', 'templates'], function (Backbone, helpers, templa
 		render: function () {
 			var data = $.extend(true, {index: this.index}, this.model.attributes);
 
-			this.el.innerHTML = this.template(data);
+			this.el.innerHTML = this.options.template(data);
 			this.link = this.$(this.options.wrapSelector)[0];
 			this.setPositionStyle(true);
 

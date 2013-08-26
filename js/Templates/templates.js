@@ -2,9 +2,9 @@ var templates = {};
 templates["Progress"] = function(obj){
 var __t,__p='',__j=Array.prototype.join,print=function(){__p+=__j.call(arguments,'');};
 with(obj||{}){
-__p+='<div class="b-progress__wrap">\r\n\r\n\t<div class="b-progress__counter">\r\n\t\t<div class="b-progress__counter-wrap">\r\n\t\t\t<span class="b-progress__counter-text">'+
+__p+='<div class="b-progress__wrap"><div class="b-progress__counter"><div class="b-progress__counter-wrap"><span class="b-progress__counter-text">'+
 ((__t=( progress ))==null?'':__t)+
-'</span> %\r\n\t\t</div>\r\n\t</div>\r\n\r\n\t<ul class="b-progress__list"></ul>\r\n\r\n</div>';
+'</span> %</div></div><ul class="b-progress__list"></ul></div>';
 }
 return __p;
 }
@@ -13,9 +13,9 @@ var __t,__p='',__j=Array.prototype.join,print=function(){__p+=__j.call(arguments
 with(obj||{}){
 __p+='<a class="b-progress__item-link" href="#question'+
 ((__t=( index ))==null?'':__t)+
-'" tabindex="-1">\r\n\t<span class="b-progress__item-text">'+
+'" tabindex="-1"><span class="b-progress__item-text">'+
 ((__t=( index ))==null?'':__t)+
-'</span>\r\n</a>\r\n';
+'</span></a>';
 }
 return __p;
 }
@@ -24,29 +24,29 @@ var __t,__p='',__j=Array.prototype.join,print=function(){__p+=__j.call(arguments
 with(obj||{}){
 __p+='<div class="b-question__index">'+
 ((__t=( index ))==null?'':__t)+
-'</div>\r\n<div class="b-question__content">\r\n\t'+
+'</div><div class="b-question__content">'+
 ((__t=( content ))==null?'':__t)+
-'\r\n\r\n\t';
+'';
  if (cutContent !== '') { 
-__p+='\r\n\r\n\t\t<div class="b-question__content-cut">\r\n\t\t\t'+
+__p+='<div class="b-question__content-cut">'+
 ((__t=( cutContent ))==null?'':__t)+
-'\r\n\t\t</div>\r\n\t\t<p><a href="#" class="b-question__content-show-cut">Подробнее</a></p>\r\n\r\n\t';
+'</div><p><a href="#" class="b-question__content-show-cut">Подробнее</a></p>';
  } 
-__p+='\r\n</div>\r\n<div class="b-question__controls">\r\n\t';
+__p+='</div><div class="b-question__controls">';
  for (var i = 0; i < controls.length; i++) { 
-__p+='\r\n\t\t<div class="b-question__row">\r\n\t\t\t';
+__p+='<div class="b-question__row">';
  if (controls[i].type === 'textarea') { 
-__p+='\r\n\t\t\t\t<textarea class="b-question__textarea" tabindex="'+
+__p+='<textarea class="b-question__textarea" tabindex="'+
 ((__t=( index ))==null?'':__t)+
 ''+
 ((__t=( i ))==null?'':__t)+
-'"></textarea>\r\n\t\t\t';
+'"></textarea>';
  } 
-__p+='\r\n\t\t\t';
+__p+='';
  if (controls[i].type === 'radio') { 
-__p+='\r\n\t\t\t\t';
+__p+='';
  for (var j = 0; j < controls[i].options.length; j++) { 
-__p+='\r\n\t\t\t\t\t<label class="b-question__label">\r\n\t\t\t\t\t\t<input type="'+
+__p+='<label class="b-question__label"><input type="'+
 ((__t=( controls[i].type ))==null?'':__t)+
 '" tabindex="'+
 ((__t=( index ))==null?'':__t)+
@@ -56,24 +56,24 @@ __p+='\r\n\t\t\t\t\t<label class="b-question__label">\r\n\t\t\t\t\t\t<input type
 ((__t=( index ))==null?'':__t)+
 '__'+
 ((__t=( i ))==null?'':__t)+
-'" />\r\n\t\t\t\t\t\t<span>'+
+'" /><span>'+
 ((__t=( controls[i].options[j] ))==null?'':__t)+
-'</span>\r\n\t\t\t\t\t</label>\r\n\t\t\t\t';
+'</span></label>';
  } 
-__p+='\r\n\t\t\t';
+__p+='';
  } 
-__p+='\r\n\t\t</div>\r\n\t';
+__p+='</div>';
  } 
-__p+='\r\n</div>\r\n';
+__p+='</div>';
 }
 return __p;
 }
 templates["Form"] = function(obj){
 var __t,__p='',__j=Array.prototype.join,print=function(){__p+=__j.call(arguments,'');};
 with(obj||{}){
-__p+='<form action="#">\t<div class="b-form__header">\t\t'+
+__p+='<form action="#"><div class="b-form__header">'+
 ((__t=( headContent ))==null?'':__t)+
-'\t\t\t</div>\t<div class="b-form__form">\t</div>\t<div class="b-form__footer"><button class="b-form__button" tabindex="1000">Отпарвить анкету</button>\t</div></form>';
+'</div><div class="b-form__form"></div><div class="b-form__footer"><button class="b-form__button" tabindex="1000">Отпарвить анкету</button></div></form>';
 }
 return __p;
 }

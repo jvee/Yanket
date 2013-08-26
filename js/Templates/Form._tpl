@@ -1,0 +1,12 @@
+<form action="#">
+	<div class="b-form__header">
+		<%= headContent %>
+		
+	</div>
+	<div class="b-form__form">
+
+	</div>
+	<div class="b-form__footer">
+		<button class="b-form__button" tabindex="1000">Отпарвить анкету</button>
+	</div>
+</form>

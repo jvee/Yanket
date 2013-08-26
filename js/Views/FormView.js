@@ -3,7 +3,7 @@ define(['Backbone', 'Views/QuestionItemView'], function (Backbone, QuestionItem)
 	/**
 	 * @class Представление формы с вопросами анкеты
 	 */
-	var QuestionCollectionView = Backbone.View.extend(
+	var FormView = Backbone.View.extend(
 		/** @lends QuestionCollectionView.prototype */
 	{
 		events: {
@@ -57,6 +57,6 @@ define(['Backbone', 'Views/QuestionItemView'], function (Backbone, QuestionItem)
 
 	});
 
-	return QuestionCollectionView;
+	return FormView;
 
 });

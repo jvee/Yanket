@@ -68,12 +68,12 @@ __p+='\r\n</div>\r\n';
 }
 return __p;
 }
-templates["Questions"] = function(obj){
+templates["Form"] = function(obj){
 var __t,__p='',__j=Array.prototype.join,print=function(){__p+=__j.call(arguments,'');};
 with(obj||{}){
-__p+='\n\t<form action="#">\n\t\t<div class="b-questions__header">\n\t\t\t'+
+__p+='<form action="#">\t<div class="b-form__header">\t\t'+
 ((__t=( headContent ))==null?'':__t)+
-'\n\t\t\t\n\t\t</div>\n\t\t<div class="b-questions__form">\n\n\t\t</div>\n\t\t<div class="b-questions__footer">\n\t\t\t<button class="b-questions__button" tabindex="1000">Отпарвить анкету</button>\n\t\t</div>\n\t</form>\n\n';
+'\t\t\t</div>\t<div class="b-form__form">\t</div>\t<div class="b-form__footer"><button class="b-form__button" tabindex="1000">Отпарвить анкету</button>\t</div></form>';
 }
 return __p;
 }

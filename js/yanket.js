@@ -20,8 +20,8 @@ require.config({
 	}
 });
 
-require(['Backbone', 'Models/QuestionModel' ,'Views/ProgressView', 'Views/QuestionCollectionView', 'templates'],
-function (Backbobe, QuestionModel, ProgressView, QuestionsView, templates) {
+require(['Backbone', 'Models/QuestionModel' ,'Views/ProgressView', 'Views/FormView', 'templates'],
+function (Backbobe, QuestionModel, ProgressView, FormView, templates) {
 
 	var questionsCollection = new Backbone.Collection(Yanket.data.questions, {model: QuestionModel}),
 		questionsForm = new Backbone.Model(Yanket.data.questionsForm),
@@ -47,13 +47,13 @@ function (Backbobe, QuestionModel, ProgressView, QuestionsView, templates) {
 				spaceAngle: 2
 			}
 		}),
-		questionsView = new QuestionsView({
-			template: templates['Questions'],
+		formView = new FormView({
+			template: templates['Form'],
 			collection: questionsCollection,
 			model: questionsForm,
-			className: 'b-questions',
-			listSelector: '.b-questions__form',
-			btnSelector: '.b-questions__button',
+			className: 'b-form',
+			listSelector: '.b-form__form',
+			btnSelector: '.b-form__button',
 			itemOptions: {
 				template: templates['QuestionItem'],
 				className: 'b-question',
@@ -65,6 +65,6 @@ function (Backbobe, QuestionModel, ProgressView, QuestionsView, templates) {
 		});
 
 	document.body.appendChild(progressView.render().el);
-	document.body.appendChild(questionsView.render().el);
+	document.body.appendChild(formView.render().el);
 
 });

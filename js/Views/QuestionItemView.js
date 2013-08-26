@@ -15,7 +15,7 @@ define(['Backbone'], function (Backbone) {
 			this.index = this.model.collection.indexOf(this.model) + 1;
 
 			this.model.on('invalid', this.setError, this);
-			this.model.on('change:answers', this.removeError, this);
+			this.model.on('valid', this.removeError, this);
 
 			this.$el.on('click', options.showCutBtnSelector, $.proxy(this.showCut, this));
 		},

@@ -15,6 +15,22 @@ define(['Backbone'], function (Backbone) {
 			answers: {}
 		},
 
+		/** @constructs */
+		initialize: function () {
+			this.on('invalid', this.resetAnswers);
+		},
+
+		/**
+		 * Сброс всех аттрибутов, которые были переданы с ошибкой
+		 * @param  {QuestionModel} model
+		 * @param  {Object}[] errors
+		 */
+		resetAnswers: function (model, errors) {
+			for (var index = 0; index < errors.length; index++) {
+				delete this.attributes.answers[errors[index].type];
+			}
+		},
+
 		/**
 		 * Валидация корректности ответа на вопрос
 		 * @param  {Object} attrs Данные модели
@@ -28,17 +44,18 @@ define(['Backbone'], function (Backbone) {
 				result = [];
 
 			if (!text || text === '') {
-				// resettting attribute
-				this.attributes.answers.text = '';
-				result.push({type: 'text', valid: false, message: 'Required text'});
+				result.push({
+					type: 'text',
+					valid: false,
+					message: 'Required text'
+				});
 			}
 
 			if (result.length > 0) {
-				this.valid = false;
 				return result;
 			}
 
-			this.valid = true;
+			this.trigger('valid');
 
 		}
 

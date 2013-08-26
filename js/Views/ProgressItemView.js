@@ -13,7 +13,7 @@ define(['Backbone', 'helpers'], function (Backbone, helpers) {
 
 			this.progressModel.on('rendered', this.setPositionStyle, this);
 			this.model.on('invalid', this.setError, this);
-			this.model.on('change:answers', this.removeError, this);
+			this.model.on('valid', this.removeError, this);
 
 		},
 

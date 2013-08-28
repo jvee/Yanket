@@ -562,8 +562,13 @@
       if (!options.validate || !this.validate) return true;
       attrs = _.extend({}, this.attributes, attrs);
       var error = this.validationError = this.validate(attrs, options) || null;
-      if (!error) return true;
-      this.trigger('invalid', this, error, _.extend(options || {}, {validationError: error}));
+      if (!error) {
+        if (!options.silent) this.trigger('valid', this, options);
+        return true;
+      }
+      if (!options.silent) {
+        this.trigger('invalid', this, error, _.extend(options || {}, {validationError: error}));
+      }
       return false;
     }
 

@@ -52,13 +52,8 @@ define(['Backbone'], function (Backbone) {
 			}
 
 			if (result.length > 0) {
-				this.valid = false;
 				return result;
 			}
-
-			this.valid = true;
-			this.trigger('valid');
-
 		}
 
 	});

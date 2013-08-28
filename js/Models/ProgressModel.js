@@ -30,7 +30,7 @@ define(['Backbone'], function (Backbone) {
 			var validCount = 0;
 
 			this.questionCollection.each(function (model, index, collection) {
-				if (model.valid === true) validCount++;
+				if (model.isValid({silent:true})) validCount++;
 			}, this);
 
 			this.set('progress', (100*validCount/this.questionCollection.length).toFixed(0));

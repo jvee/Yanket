@@ -1,0 +1,80 @@
+.b-question
+	padding-bottom (9/16)em
+	padding-top (25/16)em
+	padding-left (100/16)em
+	padding-right (8/16)em
+	position relative
+	font-size 16px
+	border-bottom 1px dashed #ccc
+
+	&__index
+		position absolute
+		font-size (20/16)em
+		top (25/16)em
+		left (8/16)em
+		width (48/20)em
+		height (48/20)em
+		background #428bca
+		text-align center
+		line-height (48/20)
+		color #fff
+		border-radius .5em
+		transition background .3s ease
+
+	&__content
+		margin-bottom 1em
+		line-height 1.4
+		font-size (14/16)em
+
+		p
+			margin .8em 0
+		
+
+		ul
+			margin-bottom .8em
+			padding-left 2em
+		
+
+		li
+			list-style-position outside
+			margin-bottom .4em
+
+	&__content-cut
+		display: none
+
+	&__row
+		margin 1em 0
+
+	&__textarea
+		display block
+		width 100%
+		max-width 100%
+		height (50/14)em
+		padding (6em/14) (12em/14)
+		font-size (14em/16)
+		line-height 1.428571429
+		color #555555
+		vertical-align middle
+		background-color #ffffff
+		border 1px solid #cccccc
+		border-radius (4/14)em
+		box-shadow inset 0 1px 1px rgba(0, 0, 0, 0.075)
+		transition border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, height .15s ease
+		overflow auto
+
+		&:focus {
+			border-color #66afe9
+			outline 0
+			box-shadow inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6)
+			height (150/14)em
+		}
+
+	&__label
+		display block
+		margin .5em 0
+
+	&.is-valid &__index
+		background #5cb85c
+
+	&.is-invalid &__index
+		background #d9534f

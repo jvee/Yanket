@@ -1,0 +1,30 @@
+<div class="b-question__index"><%= index %></div>
+<div class="b-question__content">
+	<%= content %>
+
+	<% if (cutContent !== '') { %>
+
+		<div class="b-question__content-cut">
+			<%= cutContent %>
+		</div>
+		<p><a href="#" class="b-question__content-show-cut">Подробнее</a></p>
+
+	<% } %>
+</div>
+<div class="b-question__controls">
+	<% for (var i = 0; i < controls.length; i++) { %>
+		<div class="b-question__row">
+			<% if (controls[i].type === 'textarea') { %>
+				<textarea class="b-question__textarea" tabindex="<%= index %><%= i %>"></textarea>
+			<% } %>
+			<% if (controls[i].type === 'radio') { %>
+				<% for (var j = 0; j < controls[i].options.length; j++) { %>
+					<label class="b-question__label">
+						<input type="<%= controls[i].type %>" tabindex="<%= index %><%= i %>" name="question__<%= index %>__<%= i %>" />
+						<span><%= controls[i].options[j] %></span>
+					</label>
+				<% } %>
+			<% } %>
+		</div>
+	<% } %>
+</div>

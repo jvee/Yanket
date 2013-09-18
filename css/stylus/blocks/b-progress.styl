@@ -1,0 +1,119 @@
+.b-progress 
+	font-size 16px
+	position fixed
+	top (100em/16)
+	left (50em/16)
+	width (200em/16)
+	height (200em/16)
+	border-radius 50%
+	background #fff
+	box-shadow 0 0 15px rgba(0,0,0, .3)
+
+	&__wrap 
+		width (194/16)em
+		height (194/16)em
+		margin (3/16)em
+		overflow hidden
+		position relative
+
+	&__counter
+		display block
+		width 80%
+		height 80%
+		top 10%
+		left 10%
+		background #fff
+		position relative
+		border-radius: 50%
+		overflow hidden
+		z-index 100
+		
+
+		&-wrap
+			text-align center
+			border-radius: 50%
+			background #fff
+			height (184*.8/16)em
+			width (184*.8/16)em
+			margin (4/16)em
+			box-shadow inset 0 0 15px rgba(0,0,0, .3)
+			color #444
+
+		&-text
+			font-size 4em
+			line-height (184*.8/64)
+
+	&__list 
+		display block
+
+	&__item
+		display block
+		position absolute
+		width 100%
+		height 100%
+		top -50%
+		left -50%
+		transform-origin 100% 100%
+		overflow hidden
+		text-align center
+		transition all .5s
+		backface-visibility hidden
+
+		&.is-valid &-link
+			background #5cb85c
+
+		&.is-invalid &-link
+			background #d9534f
+
+	&__item-link
+		background #428bca
+		color #fff
+		width 100%
+		height 100%
+		position absolute
+		top 50%
+		left 50%
+		display block
+		text-decoration none
+		border-radius 50%
+		transition all .3s ease
+
+		&:hover
+			background #eaeaea
+
+		&:focus
+			outline 0
+
+
+	&__item-text
+		display block
+		font-size 12px
+		line-height 1.6
+
+	&_simple
+		height auto
+		background none
+
+	&_simple &__wrap
+		overflow hidden
+		height auto
+
+	&_simple &__list
+		overflow hidden
+
+	&_simple &__item
+		width (30/16)em
+		height (30/16)em
+		margin-left (5/16)em
+		margin-bottom (5/16)em
+		line-height: (30/16)
+		position static
+		float left
+
+	&_simple &__item-link
+		position static
+
+	&_simple &__item-text
+		line-height: (30/12)
+
+
